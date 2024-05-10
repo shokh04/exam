@@ -136,7 +136,7 @@ class Product:
 
     def save(self):
         with DbConnect(db_params) as cur:
-            insert_query = 'insert into person (fullname, age, email) values (%s, %s, %s);'
+            insert_query = 'insert into product (name, price, color, image) values (%s, %s, %s, %s);'
             insert_params = (self.name, self.price, self.color, self.image)
             cur.execute(insert_query, insert_params)
             print('INSERT 0 1')
@@ -144,6 +144,6 @@ class Product:
     def __repr__(self):
         return f'Product({self.id} => {self.name} => {self.price}, {self.color}, {self.image})'
 
-person = Person(name='Iphone', price=1200, color='titanium', image='images/person.jpg')
-person.save()
+product = Product(name='Iphone', price=1200, color='titanium', image='images/person.jpg')
+product.save()
 print(Product())
